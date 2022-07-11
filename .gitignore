@@ -1,0 +1,11 @@
+3.10.3-venv/
+__pycache__
+**/*/__pycache__
+*.egg-info
+data/external/rico
+data/processed/rico_links.csv
+data/raw/figma
+data/processed/figma-links.csv
+.DS_Store
+**/*/.DS_Store
+dist/

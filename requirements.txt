@@ -1,0 +1,12 @@
+imbalanced-learn
+numpy
+pandas
+scikit-learn
+sentence-transformers
+torch
+tqdm
+pytest
+click
+black
+joblib
+requests
