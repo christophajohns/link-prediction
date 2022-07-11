@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="link-prediction",
-    version="1.0.1",
+    version="1.0.3",
     description="Predict links between screens of smartphone applications",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -20,4 +20,17 @@ setup(
         ]
     },
     package_data={"link-prediction": ["models/*.joblib"]},
+    install_requires=[
+        "numpy",
+        "pandas",
+        "scikit-learn",
+        "scipy",
+        "tqdm",
+        "imbalanced-learn",
+        "sentence-transformers",
+        "torch",
+        "click",
+        "joblib",
+        "requests",
+    ],
 )
