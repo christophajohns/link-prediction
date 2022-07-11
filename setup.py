@@ -14,5 +14,10 @@ setup(
     author_email="christoph.johns@aalto.fi",
     packages=find_packages(exclude=["**/*.joblib", "**/*.npy"]),
     scripts=["bin/predict.py"],
+    entry_points={
+        "console_scripts": [
+            "predict-link = main:predict",
+        ]
+    },
     package_data={"link-prediction": ["models/*.joblib"]},
 )
