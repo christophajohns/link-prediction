@@ -72,8 +72,12 @@ class FigmaDataPoint:
         return data_point_dict
 
 
-def load_figma_links(return_X_y=False, number_of_data_points=100):
+def load_figma_links(
+    return_X_y=False, number_of_data_points=100, download_external_data=False
+):
     """Load and return the Figma link dataset (classification)."""
+    if download_external_data:
+        download_figma_data()
     figma_links_df = pd.read_csv("data/processed/figma-links.csv")
     raw_links_data = [
         {
@@ -98,8 +102,8 @@ def load_figma_links(return_X_y=False, number_of_data_points=100):
     return figma_data_points
 
 
-def main() -> None:
-    """Load Figma data."""
+def download_figma_data():
+    """Download all required Figma data."""
     # Download the Figma view hierarchies
     url = "https://github.com/christophajohns/figma-links/raw/main/view_hierarchies.tar.gz"
     figma_dir_path = "data/raw/figma"
@@ -139,6 +143,11 @@ def main() -> None:
         print("Done downloading Figma_links dataset IDs.")
     else:
         print("Figma_links dataset IDs already extracted.")
+
+
+def main() -> None:
+    """Load Figma data."""
+    download_figma_data()
 
 
 if __name__ == "__main__":

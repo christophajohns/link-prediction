@@ -402,8 +402,12 @@ class RicoDataPoint:
         )
 
 
-def load_rico_links(return_X_y=False, number_of_data_points=1000):
+def load_rico_links(
+    return_X_y=False, number_of_data_points=1000, download_external_data=False
+):
     """Load and return the RICO link dataset (classification)."""
+    if download_external_data:
+        download_rico_data()
     rico_links_df = pd.read_csv("data/processed/rico_links.csv")
     raw_links_data = [
         {
@@ -430,8 +434,8 @@ def load_rico_links(return_X_y=False, number_of_data_points=1000):
     return rico_data_points
 
 
-def main() -> None:
-    """Load RICO data."""
+def download_rico_data():
+    """Download all required RICO data."""
     # Download the RICO interaction traces
     url = "https://storage.googleapis.com/crowdstf-rico-uiuc-4540/rico_dataset_v0.1/traces.tar.gz"
     rico_dir_path = "data/external/rico"
@@ -476,6 +480,11 @@ def main() -> None:
         print("Done downloading RICO_links dataset IDs.")
     else:
         print("RICO_links dataset IDs already extracted.")
+
+
+def main() -> None:
+    """Load RICO data."""
+    download_rico_data()
 
 
 if __name__ == "__main__":

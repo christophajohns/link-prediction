@@ -31,7 +31,7 @@ from link_prediction.datasets import load_rico_links
 import joblib
 
 # Load some data
-X = load_rico_links()
+X = load_rico_links(download_external_data=True)
 
 # Load a (pre-trained) model
 model = "PageContainsLabel"
@@ -47,6 +47,8 @@ There is also a CLI for simplified use:
 ```Shell
 $ python3 -m link-prediction --source-screen path/to/view_hierarchy/324.json --source-element 76d99c7 --target-screen path/to/view_hierarchy/339.json --model PageContainsLabel
 ```
+
+Keep in mind, however, that using the `link-prediction` package as shown above requires the original RICO dataset, the RICO<sub>links</sub> dataset and the pre-trained models to be present in the project directory.
 
 ## Contributors
 
