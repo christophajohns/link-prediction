@@ -14,9 +14,7 @@ from link_prediction.models.classification.base import (
 class TextTransformer(BaseEstimator, TransformerMixin):
     def __init__(
         self,
-        language_model=SentenceTransformer(
-            "/Users/cjohns/Developer/master-thesis/all-MiniLM-L6-v2"
-        ),
+        language_model=SentenceTransformer("models/all-MiniLM-L6-v2"),
     ):
         """Transformer to process text into required format
         for text classification."""
@@ -60,9 +58,7 @@ class TextTransformer(BaseEstimator, TransformerMixin):
 class DataPointTransformer(BaseDataPointTransformer):
     def __init__(
         self,
-        language_model=SentenceTransformer(
-            "/Users/cjohns/Developer/master-thesis/all-MiniLM-L6-v2"
-        ),
+        language_model=SentenceTransformer("models/all-MiniLM-L6-v2"),
         number_of_neighbors=7,
     ):
         """Transformer to process RicoDataPoint into required format

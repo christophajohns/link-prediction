@@ -13,9 +13,7 @@ from .types import SourceElementLabelEncoding, TargetPageTextsEncoding
 class DataPointTransformer(BaseDataPointTransformer):
     def __init__(
         self,
-        language_model=SentenceTransformer(
-            "/Users/cjohns/Developer/master-thesis/all-MiniLM-L6-v2"
-        ),
+        language_model=SentenceTransformer("models/all-MiniLM-L6-v2"),
     ):
         """Transformer to process RicoDataPoint into required format
         for LabelTextSimilarityClassifier."""

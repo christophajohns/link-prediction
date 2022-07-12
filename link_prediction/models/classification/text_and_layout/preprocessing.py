@@ -22,9 +22,7 @@ from link_prediction.models.classification.base import (
 class DataPointTransformer(BaseDataPointTransformer):
     def __init__(
         self,
-        language_model=SentenceTransformer(
-            "/Users/cjohns/Developer/master-thesis/all-MiniLM-L6-v2"
-        ),
+        language_model=SentenceTransformer("models/all-MiniLM-L6-v2"),
         layout_model=LayoutEncoder(),
         number_of_neighbors=1,
     ):

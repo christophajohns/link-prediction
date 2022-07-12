@@ -8,7 +8,7 @@ import torch.nn.functional as F
 class LayoutEncoder(nn.Module):
     def __init__(
         self,
-        autoencoder_state_dict_path="/Users/cjohns/Developer/master-thesis/data-analysis/data/pretrained_models/layout_encoder.ep800",
+        autoencoder_state_dict_path="models/layout_encoder.ep800",
     ):
         """RICO layout autoencoder."""
         super(LayoutEncoder, self).__init__()
