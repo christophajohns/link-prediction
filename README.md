@@ -5,6 +5,9 @@ _Link Prediction_ is a Python module that provides baseline models to predict li
 1. It provides a heuristically constructed set of link data based on the [RICO dataset](https://interactionmining.org/rico).
 2. It provides several heuristic and learning-based link prediction models that can be used using with hierarchical screen data.
 
+This package is part of a master thesis project titled "Predicting Links for Mobile GUI Prototyping" by [Christoph A. Johns](mailto:christophjohns@aalto.fi?subject=[GitHub]%20Suggested%20Links%Figma%Plugin) at German Research Center for Artificial Intelligence (DFKI) and Aalto University.
+The project is supervised by Michael Barz and Prof. Antti Oulasvirta.
+
 ## Requirements
 
 Link Prediction is known to work with Python 3.10.3 and above.

@@ -157,7 +157,9 @@ class Page:
             height=page_dict["height"],
             width=page_dict["width"],
             children=children,
-            evaluation_id=page_dict["evaluationId"],
+            evaluation_id=page_dict["evaluationId"]
+            if "evaluationId" in page_dict
+            else None,
         )
 
     def find_by_id(self, element_id: str) -> Optional[UIElement]:
