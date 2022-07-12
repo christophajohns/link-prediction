@@ -3,6 +3,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import os
+from link_prediction.models.download_layout_encoder import download_state_dict
 
 
 class LayoutEncoder(nn.Module):
@@ -16,6 +18,9 @@ class LayoutEncoder(nn.Module):
         self.e1 = nn.Linear(11200, 2048)
         self.e2 = nn.Linear(2048, 256)
         self.e3 = nn.Linear(256, 64)
+
+        if not os.path.exists(autoencoder_state_dict_path):
+            download_state_dict()
 
         autoencoder_state_dict = torch.load(
             autoencoder_state_dict_path,

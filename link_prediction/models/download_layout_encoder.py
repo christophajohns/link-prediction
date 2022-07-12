@@ -5,7 +5,7 @@ import requests
 from tqdm import tqdm
 
 
-def main() -> None:
+def download_state_dict() -> None:
     """Download the pre-trained RICO layout autoencoder model."""
     # Download the RICO layout autoencoder
     rico_layout_autoencoder_url = (
@@ -30,4 +30,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    download_state_dict()
