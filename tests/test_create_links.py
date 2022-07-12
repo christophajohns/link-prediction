@@ -23,6 +23,7 @@ from link_prediction.models import (
     TextAndLayoutClassifier,
     TextAndLayoutDataPointTransformer,
 )
+from sentence_transformers import SentenceTransformer
 import json
 from tqdm import tqdm
 
@@ -53,15 +54,21 @@ def test_predict_links(save_predictions_to_file=False):
             LargestTextElementsContainLabelClassifier(),
         ),
         (
-            LabelTextSimilarityDataPointTransformer(),
+            LabelTextSimilarityDataPointTransformer(
+                language_model=SentenceTransformer("../all-MiniLM-L6-v2")
+            ),
             LabelTextSimilarityClassifier(),
         ),
         (
-            TextSimilarityDataPointTransformer(),
+            TextSimilarityDataPointTransformer(
+                language_model=SentenceTransformer("../all-MiniLM-L6-v2")
+            ),
             TextSimilarityClassifier(),
         ),
         (
-            TextSimilarityNeighborsDataPointTransformer(),
+            TextSimilarityNeighborsDataPointTransformer(
+                language_model=SentenceTransformer("../all-MiniLM-L6-v2")
+            ),
             TextSimilarityNeighborsClassifier(),
         ),
         (
@@ -69,11 +76,15 @@ def test_predict_links(save_predictions_to_file=False):
             LayoutClassifier(),
         ),
         (
-            TextDataPointTransformer(),
+            TextDataPointTransformer(
+                language_model=SentenceTransformer("../all-MiniLM-L6-v2")
+            ),
             TextClassifier(),
         ),
         (
-            TextAndLayoutDataPointTransformer(),
+            TextAndLayoutDataPointTransformer(
+                language_model=SentenceTransformer("../all-MiniLM-L6-v2")
+            ),
             TextAndLayoutClassifier(),
         ),
     ]

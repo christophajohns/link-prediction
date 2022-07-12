@@ -14,7 +14,7 @@ class DataPointTransformer(BaseDataPointTransformer):
     def __init__(
         self,
         number_of_neighbors=2,
-        language_model=SentenceTransformer("models/all-MiniLM-L6-v2"),
+        language_model=SentenceTransformer("all-MiniLM-L6-v2"),
     ):
         """Transformer to process RicoDataPoint into required format
         for TextSimilarityNeighborsClassifier."""

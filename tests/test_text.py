@@ -2,9 +2,9 @@
 
 import pytest
 from typing import Optional
+from sentence_transformers import SentenceTransformer
 from sklearn import clone
 from sklearn.model_selection import train_test_split
-
 from sklearn.pipeline import make_pipeline
 from link_prediction.datasets.rico import load_rico_links
 from link_prediction.models.classification.text import (
@@ -35,7 +35,9 @@ class TestTextClassifier:
     ):
         """Test format of the text embedding for the source and target."""
         if data_point_embedding is None:
-            transformer = DataPointTransformer()
+            transformer = DataPointTransformer(
+                language_model=SentenceTransformer("../all-MiniLM-L6-v2")
+            )
             data_point_embedding = transformer._encode_data_point(rico_data_point)
         text_vector_length = 384
         data_point_embedding_vector_length = text_vector_length * 2
@@ -45,7 +47,9 @@ class TestTextClassifier:
 
     def test_data_point_embedding(
         self,
-        transformer: DataPointTransformer = DataPointTransformer(),
+        transformer: DataPointTransformer = DataPointTransformer(
+            language_model=SentenceTransformer("../all-MiniLM-L6-v2")
+        ),
     ) -> None:
         """Test data point embedding methods of model."""
         data_point_embedding = transformer._encode_data_point(rico_data_point)
@@ -53,14 +57,18 @@ class TestTextClassifier:
 
     def test_rico_data_point_transformer(self):
         """Test the preprocessing transformer."""
-        transformer = DataPointTransformer()
+        transformer = DataPointTransformer(
+            language_model=SentenceTransformer("../all-MiniLM-L6-v2")
+        )
         data_point_embedding = transformer.transform([rico_data_point])[0]
         self.test_data_point_embedding_format(data_point_embedding)
 
     def test_model_params(
         self,
         model: TextClassifier = TextClassifier(),
-        transformer: DataPointTransformer = DataPointTransformer(),
+        transformer: DataPointTransformer = DataPointTransformer(
+            language_model=SentenceTransformer("../all-MiniLM-L6-v2")
+        ),
     ) -> None:
         """Test parameter-related methods of model."""
         expected_params = {
@@ -105,7 +113,9 @@ class TestTextClassifier:
 def main() -> None:
     """Create model instance and test its methods."""
     model = TextClassifier()
-    transformer = DataPointTransformer()
+    transformer = DataPointTransformer(
+        language_model=SentenceTransformer("../all-MiniLM-L6-v2")
+    )
     test_model = TestTextClassifier()
     test_model.test_model_params(model, transformer)
 
