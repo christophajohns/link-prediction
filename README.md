@@ -53,6 +53,10 @@ $ python3 -m link-prediction --source-screen path/to/view_hierarchy/324.json --s
 
 Keep in mind, however, that using the `link-prediction` package as shown above requires the original RICO dataset, the RICO<sub>links</sub> dataset and the pre-trained models to be present in the project directory.
 
+## Datasets
+
+The datasets can either be downloaded via the methods provided in this package or be manually downloaded from their separate repositories: [RICO<sub>links</sub>](https://github.com/christophajohns/rico-links) and [FIGMA<sub>links</sub>](https://github.com/christophajohns/figma-links).
+
 ## Contributors
 
 Christoph A. Johns
